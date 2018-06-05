@@ -33,3 +33,5 @@ RUN wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintra
     && apt update && apt install -y \
     libavcodec-extra \
     siegfried
+
+RUN apt install -y php-dev php-xdebug
