@@ -34,4 +34,7 @@ RUN wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintra
     libavcodec-extra \
     siegfried
 
-RUN apt install -y php-dev php-xdebug
+RUN apt install -y php-dev php-xdebug default-jre \
+    && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && php -r "unlink('composer-setup.php');"
