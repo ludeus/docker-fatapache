@@ -10,7 +10,7 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive \
     apache2 \
     libapache2-mod-php7.2 libargon2-0 php-common php7.2 php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-readline psmisc tzdata \
     php7.2-mbstring php7.2-xmlrpc php7.2-xml php7.2-intl php7.2-zip php7.2-curl php7.2-pgsql php7.2-sqlite3 php7.2-mysql php7.2-gd php7.2-dev \
-    php-pear php-imagick php7.2-imap php-memcache php7.2-pspell php7.2-recode php7.2-xsl php-gettext php7.2-zmq php7.2-soap php7.2-xdebug \
+    php-pear php-imagick php7.2-imap php-memcache php7.2-pspell php7.2-recode php7.2-xsl php-gettext php7.2-zmq php7.2-soap php7.2-xdebug php7.2-ldap \
     sqlite3 \
     zlib1g-dev libicu-dev g++ libxml2-dev libpq-dev \
     build-essential libtool autoconf uuid-dev pkg-config libsodium-dev \
@@ -36,5 +36,3 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');"
-
-RUN apt install -y php7.2-ldap
