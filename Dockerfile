@@ -11,9 +11,9 @@ RUN apt update \
     gnupg \
     git \
     apache2 \
-    libapache2-mod-php7.4 libargon2-0 php-common php7.4 php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline psmisc tzdata \
-    php7.4-mbstring php7.4-xmlrpc php7.4-xml php7.4-intl php7.4-zip php7.4-curl php7.4-pgsql php7.4-sqlite3 php7.4-mysql php7.4-gd php7.4-dev \
-    php-pear php-imagick php7.4-imap php-memcache php7.4-pspell php7.4-xsl php-gettext php-zmq php7.4-soap php-xdebug php7.4-pcov php7.4-ldap \
+    libapache2-mod-php7.3 libargon2-0 php7.3-common php7.3 php7.3-cli php7.3-common php7.3-json php7.3-opcache php7.3-readline psmisc tzdata \
+    php7.3-mbstring php7.3-xmlrpc php7.3-xml php7.3-intl php7.3-zip php7.3-curl php7.3-pgsql php7.3-sqlite3 php7.3-mysql php7.3-gd php7.3-dev \
+    php-pear php7.3-imagick php7.3-imap php7.3-memcache php7.3-pspell php7.3-xsl php7.3-gettext php7.3-zmq php7.3-soap php7.3-xdebug php7.3-pcov php7.3-ldap \
     sqlite3 \
     zlib1g-dev libicu-dev g++ libxml2-dev libpq-dev \
     build-essential libtool autoconf uuid-dev pkg-config libsodium-dev \
