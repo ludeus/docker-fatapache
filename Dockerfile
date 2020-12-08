@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt update && apt upgrade \
+RUN apt update && apt upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt install -y software-properties-common \
     && add-apt-repository ppa:ondrej/php -y \
     && apt update \
@@ -36,5 +36,8 @@ RUN apt update && apt upgrade \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
-    && wget http://ressources.libriciel.fr/public/asalae/sf && chmod +x sf && mv sf /usr/bin/sf && sf -update
-
+    && wget http://ressources.libriciel.fr/public/asalae/sf && chmod +x sf && mv sf /usr/bin/sf && sf -update \
+    && apt update \
+    && apt install -y xvfb xfonts-75dpi xfonts-base \
+    && wget https://ressources.libriciel.fr/deploiement/w/wkhtmltox-0.12.6-1.focal-amd64.deb \
+    && dpkg -i wkhtmltox-0.12.6-1.focal-amd64.deb
