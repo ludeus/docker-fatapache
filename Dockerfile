@@ -41,3 +41,9 @@ RUN apt update && apt upgrade -y \
     && apt install -y xvfb xfonts-75dpi xfonts-base \
     && wget https://ressources.libriciel.fr/deploiement/w/wkhtmltox-0.12.6-1.focal-amd64.deb \
     && dpkg -i wkhtmltox-0.12.6-1.focal-amd64.deb
+
+RUN wget http://ressources.libriciel.fr/public/asalae/sonar-scanner-cli-4.5.0.2216-linux.zip \
+    && unzip sonar-scanner-cli-4.5.0.2216-linux.zip \
+    && mv sonar-scanner-4.5.0.2216-linux/ /opt/sonar-scanner/ \
+    && rm sonar-scanner-cli-4.5.0.2216-linux.zip \
+    && rm wkhtmltox-0.12.6-1.focal-amd64.deb
