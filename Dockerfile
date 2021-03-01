@@ -47,3 +47,5 @@ RUN wget http://ressources.libriciel.fr/public/asalae/sonar-scanner-cli-4.5.0.22
     && mv sonar-scanner-4.5.0.2216-linux/ /opt/sonar-scanner/ \
     && rm sonar-scanner-cli-4.5.0.2216-linux.zip \
     && rm wkhtmltox-0.12.6-1.focal-amd64.deb
+
+RUN apt update && apt install -y php-raphf
