@@ -48,4 +48,4 @@ RUN wget http://ressources.libriciel.fr/public/asalae/sonar-scanner-cli-4.5.0.22
     && rm sonar-scanner-cli-4.5.0.2216-linux.zip \
     && rm wkhtmltox-0.12.6-1.focal-amd64.deb
 
-RUN apt update && apt install -y php-raphf
+RUN pear config-set php_ini /etc/php/7.4/cli/php.ini && pecl install raphf propro
