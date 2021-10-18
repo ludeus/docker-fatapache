@@ -49,3 +49,17 @@ RUN wget http://ressources.libriciel.fr/public/asalae/sonar-scanner-cli-4.5.0.22
     && rm wkhtmltox-0.12.6-1.focal-amd64.deb
 
 RUN pear config-set php_ini /etc/php/7.4/cli/php.ini && pecl install raphf propro
+
+RUN apt-get update -y \
+    && apt-get install -y \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        gnupg \
+        lsb-release \
+    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
+    && echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+      $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null \
+    && apt update -y \
+    && apt-get install -y docker-ce docker-ce-cli containerd.io
