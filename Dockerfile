@@ -59,3 +59,8 @@ RUN apt update && apt upgrade -y \
     && mv sonar-scanner-4.5.0.2216-linux/ /opt/sonar-scanner/ \
     && rm sonar-scanner-cli-4.5.0.2216-linux.zip \
     && rm wkhtmltox-0.12.6-1.focal-amd64.deb
+
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && apt install -y ./google-chrome-stable_current_amd64.deb \
+    && apt update \
+    && apt install -y beanstalkd
