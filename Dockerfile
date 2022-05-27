@@ -58,9 +58,18 @@ RUN apt update && apt upgrade -y \
     && unzip sonar-scanner-cli-4.5.0.2216-linux.zip \
     && mv sonar-scanner-4.5.0.2216-linux/ /opt/sonar-scanner/ \
     && rm sonar-scanner-cli-4.5.0.2216-linux.zip \
-    && rm wkhtmltox-0.12.6-1.focal-amd64.deb
-
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && rm wkhtmltox-0.12.6-1.focal-amd64.deb \
+    && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && apt install -y ./google-chrome-stable_current_amd64.deb \
     && apt update \
-    && apt install -y beanstalkd
+    && apt install -y beanstalkd \
+    && apt update && apt install -y locales \
+    && sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen \
+    && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+    && dpkg-reconfigure --frontend=noninteractive locales
+
+RUN apt update && apt install -y clamav clamav-daemon clamav-freshclam libclamunrar9 \
+    && mkdir -p /var/lib/clamav/daily \
+    && echo "TCPSocket 3310" >> /etc/clamav/clamd.conf \
+    && printf "/usr/sbin/clamd {\n/data/ r,\n/data/** r,\n}" > /etc/apparmor.d/local/usr.sbin.clamd \
+    && freshclam
