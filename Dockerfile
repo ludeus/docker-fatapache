@@ -73,3 +73,7 @@ RUN apt update && apt install -y clamav clamav-daemon clamav-freshclam libclamun
     && echo "TCPSocket 3310" >> /etc/clamav/clamd.conf \
     && printf "/usr/sbin/clamd {\n/data/ r,\n/data/** r,\n}" > /etc/apparmor.d/local/usr.sbin.clamd \
     && freshclam
+
+RUN apt update && apt install -y dbus \
+    && mkdir -p /var/run/dbus \
+    && dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address
