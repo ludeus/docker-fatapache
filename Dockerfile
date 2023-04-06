@@ -79,3 +79,7 @@ RUN apt update && apt install -y clamav clamav-daemon clamav-freshclam libclamun
 RUN apt update && apt install -y dbus \
     && mkdir -p /var/run/dbus \
     && dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address
+
+RUN wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add - \
+    && echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list \
+    && apt update && apt install trivy \
